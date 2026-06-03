@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+state/
+logs/
+# runtime data reportu
+hermes_scan_data.json
+hermes_seen.json
+hermes_markets.json
+hermes-dostupne-kabelky.html
