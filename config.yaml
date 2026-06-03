@@ -1,0 +1,138 @@
+# ============================================================
+#  Hermès Scout – konfigurace
+#  EU = primární trh. eBay přes OFICIÁLNÍ API (provider: ebay_api).
+#  JS-heavy weby (Vestiaire, Buyee) viz README + native_alerts.md
+# ============================================================
+
+# Kurzy pro přepočet na CZK (uprav podle aktuálního kurzu)
+fx:
+  EUR_CZK: 25.0
+  USD_CZK: 22.3
+  GBP_CZK: 29.0
+  JPY_CZK: 0.15
+
+# Orientační PRODEJNÍ cena PO renovaci (CZK) podle modelu/velikosti.
+# Klíče se hledají v titulku inzerátu (nejdelší/nejkonkrétnější první).
+resale_estimates_czk:
+  "kelly 25": 700000
+  "kelly 28": 680000
+  "kelly 32": 520000
+  "birkin 25": 650000
+  "birkin 30": 640000
+  "birkin 35": 520000
+  "kelly": 620000      # fallback, když není velikost
+  "birkin": 600000     # fallback
+
+default_repair_cost_czk: 40000   # vlastní renovace: materiál + čas
+min_margin_czk: 80000            # do alertu jen kusy s odhadovanou marží nad tímto
+buy_flag_margin_czk: 150000      # nad tímto označit jako "KOUPIT", jinak "PROVĚŘIT"
+max_price_czk: 380000            # cenový strop pro alert (~15 000 €)
+
+# Filtr titulků
+require_damage_keyword: false    # na eBay "beschädigt/as is" vrací 0 výsledků – filtruj cenou
+damage_keywords:
+  - as is
+  - for parts
+  - repair
+  - damaged
+  - worn
+  - restoration
+  - beschädigt
+  - defekt
+  - reparatur
+  - abgénutzt
+  - abîmé
+  - restaurer
+  - danneggiata
+
+exclude_keywords:    # vyřadí šum a padělky
+  - replica
+  - inspired
+  - faux
+  - "style"
+  - mirror
+  - twilly
+  - charm
+  - "strap only"
+  - keychain
+  - "dust bag only"
+  - "box only"
+  - "leer"
+  - "empty"
+  - kopie
+  - nachbildung
+
+# ============================================================
+#  Zdroje
+#  provider: ebay_api  -> oficiální Browse API (klíče z prostředí: EBAY_APP_ID, EBAY_CERT_ID)
+#  parser:   ebay | kleinanzeigen | todo  -> HTML scraping
+# ============================================================
+sites:
+  - name: ebay_de_api
+    provider: ebay_api
+    marketplace: EBAY_DE
+    enabled: true
+    price_max: 15000        # v měně trhu (EUR)
+    limit: 100
+    queries:
+      - "hermes birkin"
+      - "hermes kelly"
+  - name: ebay_fr_api
+    provider: ebay_api
+    marketplace: EBAY_FR
+    enabled: true
+    price_max: 15000
+    limit: 100
+    queries:
+      - "hermes birkin"
+      - "hermes kelly"
+  - name: ebay_it_api
+    provider: ebay_api
+    marketplace: EBAY_IT
+    enabled: true
+    price_max: 15000
+    limit: 100
+    queries:
+      - "hermes birkin"
+      - "hermes kelly"
+  - name: ebay_uk_api
+    provider: ebay_api
+    marketplace: EBAY_GB
+    enabled: true
+    price_max: 13000        # GBP
+    limit: 100
+    queries:
+      - "hermes birkin"
+      - "hermes kelly"
+
+  # --- Kleinanzeigen (DE) – scraping, žádné API ---
+  - name: kleinanzeigen
+    parser: kleinanzeigen
+    enabled: true
+    urls:
+      - "https://www.kleinanzeigen.de/s-hermes-birkin/k0"
+      - "https://www.kleinanzeigen.de/s-hermes-kelly/k0"
+
+  # --- eBay HTML scraping (záloha, vypnuto – preferuj ebay_api) ---
+  - name: ebay_de
+    parser: ebay
+    enabled: false
+    urls:
+      - "https://www.ebay.de/sch/i.html?_nkw=hermes+birkin&_sop=10"
+
+  # --- JS-heavy / sekundární (vyžadují Playwright nebo nativní alerty) ---
+  - name: vestiaire
+    parser: todo
+    enabled: false
+    urls:
+      - "https://www.vestiairecollective.com/search/?q=hermes%20birkin"
+
+# Doručení alertu: email | file | stdout
+alert:
+  method: stdout
+  email:
+    smtp_host: smtp.gmail.com
+    smtp_port: 587
+    from_addr: your-email@example.com
+    to_addr: your-email@example.com
+    # přihlašovací údaje ber z prostředí: SCOUT_SMTP_USER, SCOUT_SMTP_PASS
