@@ -1,0 +1,94 @@
+<!doctype html><html lang="cs"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hermès Scout — dostupné kabelky</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f6f8;color:#1d2330;font:15px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:30px 20px 70px}
+h1{font-size:25px;margin:0 0 3px}.sub{color:#6b7280;margin:0 0 20px}
+h2{font-size:21px;margin:34px 0 6px;padding-bottom:8px;border-bottom:2px solid #1d2330}
+h3{font-size:14px;margin:18px 0 9px;color:#6b7280;text-transform:uppercase;letter-spacing:.04em}
+.cards{display:flex;gap:12px;flex-wrap:wrap}.kpi{background:#fff;border:1px solid #e7e9ef;border-radius:14px;padding:13px 18px;min-width:120px}
+.kpi b{display:block;font-size:22px}.kpi span{color:#6b7280;font-size:12px}
+.topgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px}
+.tc{position:relative;background:#fff;border:1px solid #e7e9ef;border-left:4px solid #18914e;border-radius:13px;padding:14px 15px 12px}
+.tc.mid{border-left-color:#bf7d12}.tc.no{border-left-color:#cf3b32}
+.rank{position:absolute;top:-9px;left:-9px;background:#1d2330;color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.tc-price{font-size:26px;font-weight:800;line-height:1}.tc-price small{font-size:12px;font-weight:500;color:#6b7280;margin-left:6px}
+.tc-title{font-weight:600;font-size:14px;margin:6px 0}.tc-title a{color:#1d2330;text-decoration:none}.tc-title a:hover{color:#b08d3f}
+.tc-tags{margin:5px 0}.tc-off{font-size:12.5px;color:#6b7280;margin:7px 0 4px}.tc-off b{color:#18914e}.tc-link{font-size:12px;color:#b08d3f;text-decoration:none}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid #e7e9ef;border-radius:14px;overflow:hidden;margin-bottom:6px}
+th,td{padding:9px 11px;border-bottom:1px solid #e7e9ef;text-align:left;vertical-align:middle}
+th{font-size:11px;text-transform:uppercase;color:#6b7280;background:#fbfbfd}
+td.r,th.r,td.price,th.price{text-align:right;white-space:nowrap}td.price{font-size:19px;font-weight:800}
+td.price i,td.r i{display:block;font-style:normal;font-weight:400;color:#6b7280;font-size:11px}
+.title a{color:#1d2330;text-decoration:none;font-weight:600}.title a:hover{color:#b08d3f}.off{color:#18914e;font-weight:700}.mg{font-weight:600}
+.mkt{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11.5px;font-weight:700}
+.reg{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:600}.reg.reu{background:#e8f7ef;color:#18914e}.reg.rww{background:#fbf2e0;color:#bf7d12}
+.sel{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10.5px;font-weight:600}.sel.priv{background:#e8f7ef;color:#18914e}.sel.mark{background:#eef0f4;color:#6b7280}
+.badge{display:inline-block;padding:3px 9px;border-radius:20px;font-size:12px;font-weight:700}.badge.buy{background:#e8f7ef;color:#18914e}.badge.mid{background:#fbf2e0;color:#bf7d12}.badge.no{background:#fbe9e8;color:#cf3b32}
+.go{color:#b08d3f;text-decoration:none}.euband{background:linear-gradient(90deg,#e8f7ef,#fff);border-left:4px solid #18914e;border-radius:8px;padding:6px 12px;font-weight:600;color:#18914e;margin:6px 0 10px}
+.covgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:8px;margin:14px 0 4px}
+.cov{border:1px solid #e7e9ef;border-radius:10px;padding:9px 12px;background:#fff}.cov b{display:block;font-size:13px}.cov span{font-size:12px;font-weight:700}.cov i{display:block;font-size:10.5px;color:#6b7280;font-style:normal}
+.cov-ok span{color:#18914e}.cov-no span{color:#cf3b32}.cov-sk span{color:#6b7280}.cov-ok{border-left:3px solid #18914e}.cov-no{border-left:3px solid #cf3b32}.cov-sk{border-left:3px solid #cbd0d8}
+.fbar{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}.fbtn{border:1px solid #d7dae2;background:#fff;color:#1d2330;border-radius:20px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer}.fbtn:hover{border-color:#b08d3f}.fbtn.on{background:#1d2330;color:#fff;border-color:#1d2330}.fbtn.fnew.on{background:#7a5200;border-color:#7a5200}
+.note{background:#fff;border:1px solid #e7e9ef;border-left:3px solid #b08d3f;border-radius:12px;padding:15px 20px;margin-top:16px;font-size:13px;color:#3a414f}.note b{color:#1d2330}a{color:#b08d3f}
+.loading{padding:60px;text-align:center;color:#6b7280}
+</style></head><body><div class="wrap" id="app"><div class="loading">Načítám data…</div></div>
+<script>
+const RESALE={"kelly 25":700000,"kelly 28":680000,"kelly 32":520000,"kelly 35":480000,"kelly 20":560000,"birkin 25":650000,"birkin 30":640000,"birkin 35":520000,"birkin 40":470000,"kelly":560000,"birkin":600000};
+const EURCZK=25,REPAIR=40000,MIN_M=80000,TGT_M=150000;
+const EU=["Francie","Německo","Itálie","Belgie","Nizozemsko","Španělsko","Polsko","Irsko","Rakousko","Portugalsko","Lucembursko"];
+const MKC={"Vestiaire":"#6b3fc0","eBay.de":"#1f6fd6","Leboncoin":"#e8642a","Kleinanzeigen":"#178a7a","eBay":"#1f6fd6"};
+const ALLM=[["Vestiaire","EU marketplace"],["eBay.de","EU/global"],["Leboncoin","FR soukromé"],["Kleinanzeigen","DE soukromé"],["Buyee","JP proxy"],["eBay.fr/it/es","EU duplicita"],["Vinted","EU padělky"]];
+const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cz=n=>n==null?"—":Math.round(n).toLocaleString("cs-CZ").replace(/ /g," ");
+const eu0=n=>(n||0).toLocaleString("cs-CZ").replace(/ /g," ");
+function resale(s){s=(s||"").toLowerCase();const ks=Object.keys(RESALE).sort((a,b)=>b.length-a.length);for(const k of ks)if(s.includes(k))return RESALE[k];return null;}
+function isEU(c){return EU.some(x=>(c||"").includes(x));}
+function mkt(m){const c=MKC[m]||"#555";return `<span class="mkt" style="background:${c}1a;color:${c}">${m}</span>`;}
+function reg(x){return `<span class="reg ${x.eu?"reu":"rww"}">${x.eu?"EU ✓":esc(x.country||"?")+" · clo"}</span>`;}
+function sel(x){return x.priv?'<span class="sel priv">soukromý ✓</span>':'<span class="sel mark">market</span>';}
+function newb(x){return x.new?'<span class="reg" style="background:#ffe1a8;color:#7a5200">NOVÉ</span>':"";}
+function compute(items){return items.map(d=>{const p=Math.round(d.eur*EURCZK);const r=resale(d.title)||resale(d.model);const margin=r!=null?r-p-REPAIR:null;const tgt=r!=null?r-REPAIR-TGT_M:null;let rec=tgt!=null?Math.max(Math.min(tgt,Math.round(p*0.9)),Math.round(p*0.6)):null;const ceil=r!=null?r-REPAIR-MIN_M:null;let flag="DRAHÉ",cls="no";if(margin&&margin>=TGT_M){flag="KOUPIT";cls="buy";}else if(margin&&margin>=MIN_M){flag="ZVÁŽIT";cls="mid";}return Object.assign({},d,{p,resale:r,margin,rec,rec_eur:rec!=null?Math.round(rec/EURCZK):null,ceil,flag,cls,eu:isEU(d.country)});});}
+function topcard(x,i){return `<div class="tc ${x.cls}"><div class="rank">#${i}</div><div class="tc-b">
+<div class="tc-price">${eu0(x.eur)} €<small>${cz(x.p)} Kč</small></div>
+<div class="tc-title"><a href="${x.url}" target="_blank">${esc(x.title)}</a> ${newb(x)}</div>
+<div class="tc-tags">${mkt(x.market)} ${reg(x)} ${sel(x)}</div>
+<div class="tc-off">Nabídni: <b>${eu0(x.rec_eur)} €</b> · marže ~${cz(x.margin)} Kč</div>
+<a class="tc-link" href="${x.url}" target="_blank">otevřít ↗</a></div></div>`;}
+function row(x){return `<tr class="${x.cls}" data-model="${x.model}" data-reg="${x.eu?"eu":"xeu"}" data-new="${x.new?1:0}"><td>${mkt(x.market)}</td>
+<td class="title"><a href="${x.url}" target="_blank">${esc(x.title)}</a> ${newb(x)}<div>${reg(x)} ${sel(x)}</div></td>
+<td class="price">${eu0(x.eur)} €<i>${cz(x.p)} Kč</i></td><td class="r">${cz(x.resale)} Kč</td>
+<td class="r mg">${cz(x.margin)} Kč</td><td class="r off">${eu0(x.rec_eur)} €<i>${cz(x.rec)} Kč</i></td>
+<td class="r">${cz(x.ceil)} Kč</td><td><span class="badge ${x.cls}">${x.flag}</span></td><td><a class="go" href="${x.url}" target="_blank">↗</a></td></tr>`;}
+const TH="<thead><tr><th>Market</th><th>Inzerát</th><th class='price'>Cena</th><th class='r'>Přibl. prodej</th><th class='r'>Marže</th><th class='r'>Nabídka</th><th class='r'>Strop</th><th>Hodn.</th><th></th></tr></thead>";
+function coverage(items,markets){const ms={};(markets||[]).forEach(m=>ms[m.name]=m);const cnt={};items.forEach(x=>cnt[x.market]=(cnt[x.market]||0)+1);
+return '<div class="covgrid">'+ALLM.map(([nm,desc])=>{const info=ms[nm],c=cnt[nm]||0;let st,clz;if(info&&info.status=="blocked"){st="✗ blokováno";clz="cov-no";}else if(c>0||(info&&info.status=="ok")){st="✓ funguje · "+c+" kusů";clz="cov-ok";}else if(info&&info.status=="skipped"){st="⏸ "+(info.note||"odloženo");clz="cov-sk";}else{st="— nenačteno";clz="cov-sk";}return `<div class="cov ${clz}"><b>${nm}</b><span>${st}</span><i>${desc}</i></div>`;}).join("")+'</div>';}
+function filt(m){document.querySelectorAll('#tbl tbody tr').forEach(tr=>{const md=tr.dataset.model,rg=tr.dataset.reg,nw=tr.dataset.new;let sh=true;if(m=='keu')sh=(md=='kelly'&&rg=='eu');else if(m=='beu')sh=(md=='birkin'&&rg=='eu');else if(m=='kjp')sh=(md=='kelly'&&rg=='xeu');else if(m=='bjp')sh=(md=='birkin'&&rg=='xeu');else if(m=='new')sh=(nw=='1');tr.style.display=sh?'':'none';});document.querySelectorAll('.fbtn').forEach(b=>b.classList.remove('on'));document.getElementById('b_'+m).classList.add('on');}
+window.filt=filt;
+fetch('data.json').then(r=>r.json()).then(d=>{
+ const items=compute(d.items);
+ const kelly=items.filter(x=>x.model=='kelly').sort((a,b)=>a.eur-b.eur);
+ const birk=items.filter(x=>x.model=='birkin').sort((a,b)=>a.eur-b.eur);
+ const ke=kelly.filter(x=>x.eu),kx=kelly.filter(x=>!x.eu),be=birk.filter(x=>x.eu),bx=birk.filter(x=>!x.eu);
+ const n_eu=items.filter(x=>x.eu).length, n_new=items.filter(x=>x.new).length;
+ const all=items.slice().sort((a,b)=>(a.model<b.model?-1:a.model>b.model?1:a.eur-b.eur));
+ const h=`<h1>Hermès Scout — dostupné kabelky & TOP nabídky</h1>
+ <p class="sub">${esc((d.markets||[]).filter(m=>m.status=='ok').map(m=>m.name).join(", "))} · ${d.date} · cena vzestupně, EU navrch</p>
+ <div class="cards"><div class="kpi"><b>${items.length}</b><span>kabelek</span></div><div class="kpi"><b style="color:#18914e">${n_eu}</b><span>EU (bez cla)</span></div><div class="kpi"><b style="color:#7a5200">${n_new}</b><span>nových</span></div><div class="kpi"><b>40k Kč</b><span>kalk. renovace</span></div></div>
+ <h3>Pokrytí marketů</h3>${coverage(items,d.markets)}
+ <h2>⭐ TOP 10 KELLY</h2><div class="topgrid">${kelly.slice(0,10).map((x,i)=>topcard(x,i+1)).join("")}</div>
+ <h2>⭐ TOP 10 BIRKIN</h2><div class="topgrid">${birk.slice(0,10).map((x,i)=>topcard(x,i+1)).join("")}</div>
+ <h2>📋 Všechny kabelky — filtruj</h2>
+ <div class="fbar">
+ <button class="fbtn on" id="b_all" onclick="filt('all')">Vše (${items.length})</button>
+ <button class="fbtn" id="b_keu" onclick="filt('keu')">👜 Kelly EU (${ke.length})</button>
+ <button class="fbtn" id="b_beu" onclick="filt('beu')">👜 Birkin EU (${be.length})</button>
+ <button class="fbtn" id="b_kjp" onclick="filt('kjp')">🌏 Kelly Japan (${kx.length})</button>
+ <button class="fbtn" id="b_bjp" onclick="filt('bjp')">🌏 Birkin Japan (${bx.length})</button>
+ <button class="fbtn fnew" id="b_new" onclick="filt('new')">🆕 Nové (${n_new})</button></div>
+ <table id="tbl">${TH}<tbody>${all.map(row).join("")}</tbody></table>
+ <div class="note"><b>Cena</b>=inzerát · <b>Přibl. prodej</b>=odhad po renovaci · <b>Marže</b>=prodej−cena−40k · <b>Nabídka</b>=pro marži ~150k · <b>Strop</b>=max (marže ≥80k). „soukromý ✓"=Leboncoin/Kleinanzeigen bez provize. ⚠️ Levné vintage = ideál na renovaci, ale ověř stav i pravost. Odhady orientační.</div>`;
+ document.getElementById('app').innerHTML=h;
+}).catch(e=>{document.getElementById('app').innerHTML='<div class="loading">Chyba načtení dat: '+e+'</div>';});
+</script></body></html>
