@@ -5,16 +5,19 @@
 <style>
 :root{--ink:#1d2330;--mut:#5b6472;--bg:#faf8f5;--card:#fff;--line:#e7e3db;--acc:#9c7b34;--accd:#7c6128;--gr:#18914e;--grbg:#e8f7ef}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-.wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header{background:linear-gradient(160deg,#1d2330,#2b333f);color:#fff;padding:64px 0 56px;text-align:center}
-.tag{display:inline-block;background:rgba(255,255,255,.12);color:#f3e9d2;border:1px solid rgba(243,233,210,.3);padding:5px 14px;border-radius:30px;font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:18px}
-h1{font-size:38px;line-height:1.15;margin:0 0 14px;font-weight:800}
+img{display:block;max-width:100%}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{background:linear-gradient(160deg,#1d2330,#2b333f);color:#fff;padding:56px 0}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero-photo{border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.45);width:100%;height:380px;object-fit:cover}
+.tag{display:inline-block;background:rgba(255,255,255,.12);color:#f3e9d2;border:1px solid rgba(243,233,210,.3);padding:5px 14px;border-radius:30px;font-size:13px;font-weight:600;letter-spacing:.04em;margin-bottom:16px}
+h1{font-size:40px;line-height:1.12;margin:0 0 14px;font-weight:800}
 h1 em{color:#e9c97a;font-style:normal}
-.lead{font-size:19px;color:#d7dbe2;max-width:640px;margin:0 auto 28px}
+.lead{font-size:18px;color:#d7dbe2;margin:0 0 26px}
 .cta{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;font-weight:700;padding:15px 30px;border-radius:12px;font-size:17px;box-shadow:0 6px 20px rgba(156,123,52,.35)}
 .cta:hover{background:var(--accd)}
 .cta.ghost{background:transparent;border:1px solid rgba(255,255,255,.4);box-shadow:none;margin-left:8px}
-.trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px;color:#c8cdd6;font-size:13.5px}
+.trust{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;color:#c8cdd6;font-size:13.5px}
 .trust span{background:rgba(255,255,255,.07);padding:6px 12px;border-radius:8px}
 section{padding:54px 0}h2{font-size:27px;margin:0 0 8px}.sub{color:var(--mut);margin:0 0 28px;font-size:17px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
@@ -23,7 +26,9 @@ section{padding:54px 0}h2{font-size:27px;margin:0 0 8px}.sub{color:var(--mut);ma
 .num{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#fff;align-items:center;justify-content:center;font-weight:800;margin-bottom:10px}
 .highlight{background:var(--grbg);border:1px solid #bfe6ce;border-radius:16px;padding:22px 26px;margin:0 0 28px}
 .highlight b{color:var(--gr)}
-.buy{display:flex;gap:10px;flex-wrap:wrap}.chip{background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 16px;font-weight:600}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}
+.split img{border-radius:16px;height:300px;width:100%;object-fit:cover;box-shadow:0 10px 30px rgba(20,30,60,.12)}
+.buy{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.chip{background:#fff;border:1px solid var(--line);border-radius:30px;padding:8px 16px;font-weight:600}
 .form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;max-width:620px;margin:0 auto}
 .form label{display:block;font-size:13px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.03em;margin:14px 0 5px}
 .form input,.form select,.form textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font:inherit;background:#fff}
@@ -35,22 +40,32 @@ section{padding:54px 0}h2{font-size:27px;margin:0 0 8px}.sub{color:var(--mut);ma
 summary{font-weight:700;cursor:pointer}details p{color:var(--mut);margin:10px 0 2px}
 footer{background:#1d2330;color:#aab0bb;text-align:center;padding:34px 0;font-size:14px}footer a{color:#e9c97a}
 .center{text-align:center}
+.credit{font-size:11px;color:#9aa0ab;text-align:center;margin-top:18px}.credit a{color:#aab0bb}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero-photo{height:260px;order:-1}.split{grid-template-columns:1fr}h1{font-size:32px}}
 </style></head><body>
 
-<header><div class="wrap">
+<header><div class="wrap hero">
+<div>
 <span class="tag">Specializujeme se na Birkin & Kelly</span>
 <h1>Vykoupíme vaši Hermès<br><em>i poškozenou</em></h1>
 <p class="lead">Birkin nebo Kelly, kterou jinde nechtějí — opotřebenou, s vadou, vintage. Férové ocenění do 24 hodin, ověření pravosti a bezpečná platba. Diskrétně.</p>
 <a class="cta" href="#formular">Chci ocenit zdarma</a>
 <a class="cta ghost" href="#jak">Jak to funguje</a>
-<div class="trust"><span>✓ Ocenění do 24 h</span><span>✓ Ověření pravosti</span><span>✓ Bezpečná platba</span><span>✓ Osobní převzetí možné</span></div>
+<div class="trust"><span>✓ Ocenění do 24 h</span><span>✓ Ověření pravosti</span><span>✓ Bezpečná platba</span></div>
+</div>
+<img class="hero-photo" src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1000&q=80" alt="Luxusní kožená kabelka" loading="eager">
 </div></header>
 
 <section><div class="wrap">
 <div class="highlight"><b>Bereme i to, co ostatní odmítají.</b> Poškozená kůže, oděrky na rozích, skvrny, vybledlá barva, utržené držadlo — kus po renovaci znovu ožije. Právě proto za poškozené kusy nabídneme víc než bazary, které je neumí vzít.</div>
+<div class="split">
+<div>
 <h2>Co vykupujeme</h2>
-<p class="sub">Hermès, primárně:</p>
+<p class="sub">Hermès, primárně Birkin a Kelly — ve všech velikostech, i poškozené a vintage.</p>
 <div class="buy"><span class="chip">Birkin 25 / 30 / 35 / 40</span><span class="chip">Kelly 25 / 28 / 32 / 35</span><span class="chip">i poškozené & vintage</span><span class="chip">s krabicí i bez</span></div>
+</div>
+<img src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1000&q=80" alt="Kožená kabelka">
+</div>
 </div></section>
 
 <section id="jak" style="background:#f4efe7"><div class="wrap">
@@ -64,13 +79,18 @@ footer{background:#1d2330;color:#aab0bb;text-align:center;padding:34px 0;font-si
 </div></section>
 
 <section><div class="wrap">
+<div class="split">
+<img src="https://images.unsplash.com/photo-1589363358751-ab05797e5629?auto=format&fit=crop&w=1000&q=80" alt="Detail kožené kabelky">
+<div>
 <h2>Proč prodat nám</h2>
 <p class="sub">Vyšší cena za poškozené, plus klid.</p>
-<div class="grid">
-<div class="box"><h3>💸 Vyšší cena za vady</h3><p>Specializujeme se na renovaci, takže poškozené kusy oceníme výš než běžný bazar.</p></div>
-<div class="box"><h3>🔎 Ověření pravosti</h3><p>Pravost ověřujeme profesionálně (Hermès specialista / zařízení). Jistota pro obě strany.</p></div>
-<div class="box"><h3>🔒 Bezpečná platba</h3><p>Platíme okamžitě a transparentně, s výkupní smlouvou. Hotovost dle zákonných limitů.</p></div>
-<div class="box"><h3>🤫 Diskrétně & rychle</h3><p>Bez zbytečných řečí. Ocenění do 24 h, převzetí kdykoli se vám hodí.</p></div>
+<div class="grid" style="grid-template-columns:1fr 1fr">
+<div class="box"><h3>💸 Vyšší cena</h3><p>Za poškozené kusy nabídneme víc — umíme je renovovat.</p></div>
+<div class="box"><h3>🔎 Ověření pravosti</h3><p>Profesionální ověření. Jistota pro obě strany.</p></div>
+<div class="box"><h3>🔒 Bezpečná platba</h3><p>Hned a transparentně, s výkupní smlouvou.</p></div>
+<div class="box"><h3>🤫 Diskrétně</h3><p>Bez řečí, převzetí kdykoli se vám hodí.</p></div>
+</div>
+</div>
 </div>
 </div></section>
 
@@ -101,5 +121,6 @@ footer{background:#1d2330;color:#aab0bb;text-align:center;padding:34px 0;font-si
 <footer><div class="wrap">
 Výkup Hermès Birkin &amp; Kelly · ocenění do 24 h · <a href="#formular">Chci ocenit</a><br>
 <span style="opacity:.6;font-size:12px">Kontakt: vykup@vase-domena.cz · +420 XXX XXX XXX (doplňte)</span>
+<p class="credit">Ilustrační fotografie: <a href="https://unsplash.com" target="_blank">Unsplash</a> (volné užití). Nejde o nabízené konkrétní kusy.</p>
 </div></footer>
 </body></html>
