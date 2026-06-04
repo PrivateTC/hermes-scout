@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/vykup.css"></head><body>
 <div class="langbar"><div class="wrap"><a href="../../cs/vykup/" hreflang="cs" title="Čeština">CS</a> <a href="../../en/vykup/" hreflang="en" title="English">EN</a> <a href="../../de/vykup/" hreflang="de" title="Deutsch">DE</a> <a href="../../fr/vykup/" hreflang="fr" title="Français">FR</a> <a href="../../it/vykup/" hreflang="it" title="Italiano">IT</a> <a href="../../pl/vykup/" hreflang="pl" title="Polski" class="on">PL</a> <a href="../../es/vykup/" hreflang="es" title="Español">ES</a> <a href="../../nl/vykup/" hreflang="nl" title="Nederlands">NL</a></div></div>
-<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Kolekcja</a><a href="../katalog/">Otwórz pełny katalog</a><a href="#formular">Chcę darmową wycenę</a></div></nav>
+<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Kolekcja</a><a href="#jak">Jak to działa</a><a href="#formular">Chcę darmową wycenę</a></div></nav>
 <header class="hero"><img class="hero-bg" src="https://images.unsplash.com/photo-1621735320215-ad74567fcbf2?auto=format&fit=crop&w=1400&q=80" alt="Luksusowa skórzana torebka">
 <div class="wrap"><div class="hero-in"><div class="eyebrow">Specjalizujemy się w Birkin & Kelly</div><h1>Skupimy Twoją Hermès<br><em>także uszkodzoną</em></h1><p class="lead">Birkin lub Kelly, której gdzie indziej nie chcą — zużytą, z wadą, vintage. Uczciwa wycena w 24 godziny, weryfikacja autentyczności i bezpieczna płatność. Dyskretnie.</p>
 <a class="btn gold" href="#formular">Chcę darmową wycenę</a><a class="btn ghost" href="#jak">Jak to działa</a>
@@ -40,14 +40,23 @@
 <div class="box"><h3>🔒 Bezpieczna płatność</h3><p>Od razu i przejrzyście, z umową skupu.</p></div><div class="box"><h3>🤫 Dyskretnie</h3><p>Bez zbędnych słów, odbiór kiedy Ci pasuje.</p></div>
 </div></div></div></div></section>
 <section id="formular" style="background:#f4efe7"><div class="wrap"><h2 class="center">Darmowa, niezobowiązująca wycena</h2><p class="sub center">Wypełnij, a odezwiemy się w ciągu 24 godzin.</p>
-<form class="form" action="mailto:info@lapatine.eu" method="post" enctype="text/plain">
-<label>Imię</label><input name="Jmeno" required>
-<label>E-mail lub telefon</label><input name="Kontakt" required>
-<label>Model</label><select name="Model"><option>Birkin</option><option>Kelly</option><option>Nie wiem / inne</option></select>
-<label>Rozmiar / kolor / rok (jeśli znasz)</label><input name="Detail" placeholder="np. Birkin 35, czarna, 2015">
-<label>Stan i opis wad</label><textarea name="Stav" placeholder="Np. otarte rogi, plama na klapie, urwany uchwyt…"></textarea>
-<label>Oczekiwana cena (opcjonalnie)</label><input name="Cena" placeholder="€">
-<button class="btn" type="submit">Wyślij do wyceny</button><p class="fnote">Wysłanie to tylko kontakt — do niczego się nie zobowiązujesz. Zdjęcia dołączysz w odpowiedzi na nasz e-mail.</p></form></div></section>
+<form class="form" id="vform">
+<label>Imię</label><input name="name" required>
+<label>E-mail lub telefon</label><input name="contact" required>
+<label>Model</label><select name="model"><option>Birkin</option><option>Kelly</option><option>Nie wiem / inne</option></select>
+<label>Rozmiar / kolor / rok (jeśli znasz)</label><input name="detail" placeholder="np. Birkin 35, czarna, 2015">
+<label>Stan i opis wad</label><textarea name="condition" placeholder="Np. otarte rogi, plama na klapie, urwany uchwyt…"></textarea>
+<label>Oczekiwana cena (opcjonalnie)</label><input name="price" placeholder="€">
+<label>Zdjęcia torebki (także wad)</label>
+<div class="up"><input type="file" id="ph" accept="image/*" multiple hidden>
+<button type="button" class="upbtn" id="upbtn">📷 Dodaj zdjęcia / Zrób zdjęcie</button>
+<div class="thumbs" id="thumbs"></div>
+<p class="uphint">Sfotografuj: przód i tył, rogi i spód, uchwyty, okucia i zamek, datownik, wewnętrzne tłoczenie oraz zbliżenia wad. Dodaj też pudełko, dust bag i paragon, jeśli masz.</p></div>
+<input type="text" name="company" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="btn" type="submit" id="vsubmit">Wyślij do wyceny</button><p class="fnote">Wysłanie to tylko kontakt — do niczego się nie zobowiązujesz.</p></form>
+<div class="sent" id="sent" style="display:none">✓ Dziękujemy! Odezwiemy się z wyceną w ciągu 24 godzin.</div></div></section>
+<script>window.__V={hook:"https://hook.eu1.make.com/8oaayelsos1skmqlrpauyxy3hg58y6q8",sending:"Wysyłanie…",err:"Coś poszło nie tak, spróbuj ponownie.",submit:"Wyślij do wyceny"};</script>
+<script src="../../assets/vykup.js"></script>
 <section><div class="wrap faq"><h2 class="center">Najczęstsze pytania</h2>
 <details><summary>Czy naprawdę skupujecie także uszkodzone torebki?</summary><p>Tak — to nasza specjalność. Otarcia, plamy, wyblakły kolor i uszkodzona skóra nie przeszkadzają; po renowacji sprzedajemy egzemplarz ponownie.</p></details>
 <details><summary>Jak szybko otrzymam ofertę?</summary><p>W ciągu 24 godzin od wysłania zdjęć i podstawowych informacji.</p></details>

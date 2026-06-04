@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/vykup.css"></head><body>
 <div class="langbar"><div class="wrap"><a href="../../cs/vykup/" hreflang="cs" title="Čeština">CS</a> <a href="../../en/vykup/" hreflang="en" title="English">EN</a> <a href="../../de/vykup/" hreflang="de" title="Deutsch">DE</a> <a href="../../fr/vykup/" hreflang="fr" title="Français">FR</a> <a href="../../it/vykup/" hreflang="it" title="Italiano">IT</a> <a href="../../pl/vykup/" hreflang="pl" title="Polski">PL</a> <a href="../../es/vykup/" hreflang="es" title="Español" class="on">ES</a> <a href="../../nl/vykup/" hreflang="nl" title="Nederlands">NL</a></div></div>
-<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Colección</a><a href="../katalog/">Abrir el catálogo completo</a><a href="#formular">Quiero una tasación gratis</a></div></nav>
+<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Colección</a><a href="#jak">Cómo funciona</a><a href="#formular">Quiero una tasación gratis</a></div></nav>
 <header class="hero"><img class="hero-bg" src="https://images.unsplash.com/photo-1621735320215-ad74567fcbf2?auto=format&fit=crop&w=1400&q=80" alt="Bolso de cuero de lujo">
 <div class="wrap"><div class="hero-in"><div class="eyebrow">Somos especialistas en Birkin & Kelly</div><h1>Compramos tu Hermès<br><em>incluso dañada</em></h1><p class="lead">Una Birkin o Kelly que en otro sitio no quieren — desgastada, con defectos, vintage. Tasación justa en 24 horas, verificación de autenticidad y pago seguro. Con discreción.</p>
 <a class="btn gold" href="#formular">Quiero una tasación gratis</a><a class="btn ghost" href="#jak">Cómo funciona</a>
@@ -40,14 +40,23 @@
 <div class="box"><h3>🔒 Pago seguro</h3><p>Inmediato y transparente, con contrato de compra.</p></div><div class="box"><h3>🤫 Con discreción</h3><p>Sin complicaciones, entrega cuando te venga bien.</p></div>
 </div></div></div></div></section>
 <section id="formular" style="background:#f4efe7"><div class="wrap"><h2 class="center">Tasación gratuita y sin compromiso</h2><p class="sub center">Rellena y te respondemos en 24 horas.</p>
-<form class="form" action="mailto:info@lapatine.eu" method="post" enctype="text/plain">
-<label>Nombre</label><input name="Jmeno" required>
-<label>E-mail o teléfono</label><input name="Kontakt" required>
-<label>Modelo</label><select name="Model"><option>Birkin</option><option>Kelly</option><option>No lo sé / otro</option></select>
-<label>Talla / color / año (si lo sabes)</label><input name="Detail" placeholder="p. ej. Birkin 35, negro, 2015">
-<label>Estado y descripción de los defectos</label><textarea name="Stav" placeholder="P. ej. esquinas rozadas, mancha en la solapa, asa rota…"></textarea>
-<label>Precio orientativo (opcional)</label><input name="Cena" placeholder="€">
-<button class="btn" type="submit">Enviar para tasación</button><p class="fnote">Al enviarlo solo nos contactas — no te comprometes a nada. Las fotos las añades en tu respuesta a nuestro e-mail.</p></form></div></section>
+<form class="form" id="vform">
+<label>Nombre</label><input name="name" required>
+<label>E-mail o teléfono</label><input name="contact" required>
+<label>Modelo</label><select name="model"><option>Birkin</option><option>Kelly</option><option>No lo sé / otro</option></select>
+<label>Talla / color / año (si lo sabes)</label><input name="detail" placeholder="p. ej. Birkin 35, negro, 2015">
+<label>Estado y descripción de los defectos</label><textarea name="condition" placeholder="P. ej. esquinas rozadas, mancha en la solapa, asa rota…"></textarea>
+<label>Precio orientativo (opcional)</label><input name="price" placeholder="€">
+<label>Fotos del bolso (también defectos)</label>
+<div class="up"><input type="file" id="ph" accept="image/*" multiple hidden>
+<button type="button" class="upbtn" id="upbtn">📷 Añadir fotos / Hacer una foto</button>
+<div class="thumbs" id="thumbs"></div>
+<p class="uphint">Fotografía: delante y detrás, esquinas y base, asas, herrajes y cremallera, el sello de fecha, el sello interior y primeros planos de los defectos. Añade caja, funda y recibo si los tienes.</p></div>
+<input type="text" name="company" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="btn" type="submit" id="vsubmit">Enviar para tasación</button><p class="fnote">Al enviarlo solo nos contactas — no te comprometes a nada.</p></form>
+<div class="sent" id="sent" style="display:none">✓ ¡Gracias! Te responderemos con una tasación en 24 horas.</div></div></section>
+<script>window.__V={hook:"https://hook.eu1.make.com/8oaayelsos1skmqlrpauyxy3hg58y6q8",sending:"Enviando…",err:"Algo salió mal, inténtalo de nuevo.",submit:"Enviar para tasación"};</script>
+<script src="../../assets/vykup.js"></script>
 <section><div class="wrap faq"><h2 class="center">Preguntas frecuentes</h2>
 <details><summary>¿De verdad compráis también bolsos dañados?</summary><p>Sí — es nuestra especialidad. Rozaduras, manchas, color apagado y cuero dañado no son problema; tras la restauración revendemos la pieza.</p></details>
 <details><summary>¿Con qué rapidez recibo una oferta?</summary><p>En 24 horas tras enviar las fotos y la información básica.</p></details>

@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/vykup.css"></head><body>
 <div class="langbar"><div class="wrap"><a href="../../cs/vykup/" hreflang="cs" title="Čeština">CS</a> <a href="../../en/vykup/" hreflang="en" title="English">EN</a> <a href="../../de/vykup/" hreflang="de" title="Deutsch">DE</a> <a href="../../fr/vykup/" hreflang="fr" title="Français">FR</a> <a href="../../it/vykup/" hreflang="it" title="Italiano">IT</a> <a href="../../pl/vykup/" hreflang="pl" title="Polski">PL</a> <a href="../../es/vykup/" hreflang="es" title="Español">ES</a> <a href="../../nl/vykup/" hreflang="nl" title="Nederlands" class="on">NL</a></div></div>
-<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Collectie</a><a href="../katalog/">Open de volledige catalogus</a><a href="#formular">Gratis taxatie aanvragen</a></div></nav>
+<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Collectie</a><a href="#jak">Hoe het werkt</a><a href="#formular">Gratis taxatie aanvragen</a></div></nav>
 <header class="hero"><img class="hero-bg" src="https://images.unsplash.com/photo-1621735320215-ad74567fcbf2?auto=format&fit=crop&w=1400&q=80" alt="Luxe leren handtas">
 <div class="wrap"><div class="hero-in"><div class="eyebrow">We zijn gespecialiseerd in Birkin & Kelly</div><h1>We kopen je Hermès in<br><em>ook beschadigd</em></h1><p class="lead">Een Birkin of Kelly die niemand anders wil — versleten, met een gebrek, vintage. Eerlijke taxatie binnen 24 uur, echtheidscontrole en veilige betaling. Discreet.</p>
 <a class="btn gold" href="#formular">Gratis taxatie aanvragen</a><a class="btn ghost" href="#jak">Hoe het werkt</a>
@@ -40,14 +40,23 @@
 <div class="box"><h3>🔒 Veilige betaling</h3><p>Meteen en transparant, met koopcontract.</p></div><div class="box"><h3>🤫 Discreet</h3><p>Zonder gedoe, overdracht wanneer het jou uitkomt.</p></div>
 </div></div></div></div></section>
 <section id="formular" style="background:#f4efe7"><div class="wrap"><h2 class="center">Gratis, vrijblijvende taxatie</h2><p class="sub center">Vul in en we komen binnen 24 uur bij je terug.</p>
-<form class="form" action="mailto:info@lapatine.eu" method="post" enctype="text/plain">
-<label>Naam</label><input name="Jmeno" required>
-<label>E-mail of telefoon</label><input name="Kontakt" required>
-<label>Model</label><select name="Model"><option>Birkin</option><option>Kelly</option><option>Weet ik niet / anders</option></select>
-<label>Maat / kleur / jaar (indien bekend)</label><input name="Detail" placeholder="bijv. Birkin 35, zwart, 2015">
-<label>Staat en beschrijving van gebreken</label><textarea name="Stav" placeholder="Bijv. geschuurde hoeken, vlek op de klep, afgescheurd hengsel…"></textarea>
-<label>Prijsindicatie (optioneel)</label><input name="Cena" placeholder="€">
-<button class="btn" type="submit">Versturen voor taxatie</button><p class="fnote">Met versturen neem je alleen contact op — je verplicht je tot niets. Foto's voeg je toe in je antwoord op onze e-mail.</p></form></div></section>
+<form class="form" id="vform">
+<label>Naam</label><input name="name" required>
+<label>E-mail of telefoon</label><input name="contact" required>
+<label>Model</label><select name="model"><option>Birkin</option><option>Kelly</option><option>Weet ik niet / anders</option></select>
+<label>Maat / kleur / jaar (indien bekend)</label><input name="detail" placeholder="bijv. Birkin 35, zwart, 2015">
+<label>Staat en beschrijving van gebreken</label><textarea name="condition" placeholder="Bijv. geschuurde hoeken, vlek op de klep, afgescheurd hengsel…"></textarea>
+<label>Prijsindicatie (optioneel)</label><input name="price" placeholder="€">
+<label>Foto's van de tas (ook gebreken)</label>
+<div class="up"><input type="file" id="ph" accept="image/*" multiple hidden>
+<button type="button" class="upbtn" id="upbtn">📷 Foto's toevoegen / Foto maken</button>
+<div class="thumbs" id="thumbs"></div>
+<p class="uphint">Fotografeer: voor- en achterkant, hoeken en bodem, hengsels, beslag en rits, de datumstempel, de interne stempel en close-ups van gebreken. Voeg doos, stofzak en bon toe als je die hebt.</p></div>
+<input type="text" name="company" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="btn" type="submit" id="vsubmit">Versturen voor taxatie</button><p class="fnote">Met versturen neem je alleen contact op — je verplicht je tot niets.</p></form>
+<div class="sent" id="sent" style="display:none">✓ Bedankt! We komen binnen 24 uur bij je terug met een taxatie.</div></div></section>
+<script>window.__V={hook:"https://hook.eu1.make.com/8oaayelsos1skmqlrpauyxy3hg58y6q8",sending:"Versturen…",err:"Er ging iets mis, probeer het opnieuw.",submit:"Versturen voor taxatie"};</script>
+<script src="../../assets/vykup.js"></script>
 <section><div class="wrap faq"><h2 class="center">Veelgestelde vragen</h2>
 <details><summary>Kopen jullie echt ook beschadigde tassen in?</summary><p>Ja — dat is onze specialiteit. Krassen, vlekken, vervaagde kleur en beschadigd leer zijn geen probleem; na restauratie verkopen we het stuk weer.</p></details>
 <details><summary>Hoe snel krijg ik een bod?</summary><p>Binnen 24 uur na het sturen van foto's en basisinformatie.</p></details>
