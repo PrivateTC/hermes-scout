@@ -10,7 +10,7 @@ thumbs.addEventListener('click',function(e){if(e.target.classList.contains('x'))
 f.addEventListener('submit',function(e){e.preventDefault();if(hp&&hp.value)return;
 var fd=new FormData();['name','contact','model','detail','condition','price'].forEach(function(n){if(f[n])fd.append(n,f[n].value);});
 fd.append('lang',document.documentElement.lang||'');fd.append('page',location.href);fd.append('photoCount',files.length);
-files.forEach(function(fl,i){fd.append('photo'+(i+1),fl,fl.name||('photo'+(i+1)+'.jpg'));});
+files.forEach(function(fl,i){fd.append('files',fl,fl.name||('foto'+(i+1)+'.jpg'));});
 sb.disabled=true;sb.textContent=V.sending||'...';
 fetch(V.hook,{method:'POST',mode:'no-cors',body:fd}).then(function(){f.style.display='none';if(sent){sent.style.display='block';sent.scrollIntoView({behavior:'smooth',block:'center'});}}).catch(function(){sb.disabled=false;sb.textContent=V.err||V.submit||'!';});
 });
