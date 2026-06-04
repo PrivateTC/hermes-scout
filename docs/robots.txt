@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://privatetc.github.io/hermes-scout/sitemap.xml
