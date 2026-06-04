@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--ink:#1c1a17;--mut:#6b655c;--bg:#faf7f2;--card:#fff;--line:#e8e2d8;--acc:#9c7b34;--accd:#7c6128;--gr:#3f7d56}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif;font-size:16px;line-height:1.65}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,Arial,sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden}
 img{display:block;max-width:100%}a{color:inherit}
 .serif{font-family:"Playfair Display",Georgia,serif}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
@@ -20,7 +20,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink);margin-left:10px}
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:70px 0 80px}
 .hero .eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:12px;color:var(--acc);font-weight:600;margin-bottom:20px}
-.hero h1{font-size:56px;line-height:1.08;margin:0 0 22px;font-weight:600}
+.hero h1{font-size:clamp(33px,7vw,56px);line-height:1.1;margin:0 0 22px;font-weight:600}
 .hero p{font-size:18px;color:var(--mut);max-width:460px;margin:0 0 30px}
 .hero-img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:3px;box-shadow:0 30px 70px rgba(28,26,23,.22)}
 .trust{display:flex;gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
@@ -51,7 +51,8 @@ section{padding:78px 0}
 footer{background:#15130f;color:#9a948a;padding:48px 0;font-size:14px}
 footer .cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}footer a{color:#cfc8bb;text-decoration:none}
 .credit{margin-top:24px;font-size:11px;color:#6c665c}
-@media(max-width:820px){.hero,.editorial{grid-template-columns:1fr;gap:30px}.hero h1{font-size:40px}.svc,.coll{grid-template-columns:1fr}.auth{grid-template-columns:1fr 1fr}.trust{flex-wrap:wrap}.trust div{flex:1 1 50%;border-bottom:1px solid var(--line)}.nav-links{display:none}}
+@media(max-width:820px){.hero,.editorial{grid-template-columns:1fr;gap:28px}.svc,.coll{grid-template-columns:1fr}.auth{grid-template-columns:1fr 1fr}.trust{flex-wrap:wrap}.trust div{flex:1 1 50%;border-bottom:1px solid var(--line)}.nav-links a:not(.btn){display:none}.nav-links{margin:0}section{padding:50px 0}.hero{padding:38px 0 48px}.hero .btn{display:block;text-align:center;margin:0 0 10px}.btn.ghost{margin-left:0}.shead h2{font-size:29px}.shead p,.hero p{font-size:16.5px}.editorial h2{font-size:28px}.wrap{padding:0 18px}}
+@media(max-width:420px){.trust div{flex:1 1 100%}.auth{grid-template-columns:1fr}}
 </style></head><body>
 
 <nav class="wrap"><span class="logo">Maison&nbsp;Patine</span>
