@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/vykup.css"></head><body>
 <div class="langbar"><div class="wrap"><a href="../../cs/vykup/" hreflang="cs" title="Čeština">CS</a> <a href="../../en/vykup/" hreflang="en" title="English" class="on">EN</a> <a href="../../de/vykup/" hreflang="de" title="Deutsch">DE</a> <a href="../../fr/vykup/" hreflang="fr" title="Français">FR</a> <a href="../../it/vykup/" hreflang="it" title="Italiano">IT</a> <a href="../../pl/vykup/" hreflang="pl" title="Polski">PL</a> <a href="../../es/vykup/" hreflang="es" title="Español">ES</a> <a href="../../nl/vykup/" hreflang="nl" title="Nederlands">NL</a></div></div>
-<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Collection</a><a href="../katalog/">Open the full catalogue</a><a href="#formular">Get a free valuation</a></div></nav>
+<nav class="wrap"><a class="logo" href="../">La&nbsp;Patine</a><div class="nav-links"><a href="../">Collection</a><a href="#jak">How it works</a><a href="#formular">Get a free valuation</a></div></nav>
 <header class="hero"><img class="hero-bg" src="https://images.unsplash.com/photo-1621735320215-ad74567fcbf2?auto=format&fit=crop&w=1400&q=80" alt="Luxury leather handbag">
 <div class="wrap"><div class="hero-in"><div class="eyebrow">We specialise in Birkin & Kelly</div><h1>We'll buy your Hermès<br><em>even if damaged</em></h1><p class="lead">A Birkin or Kelly nobody else wants — worn, flawed, vintage. Fair valuation within 24 hours, authenticity check and secure payment. Discreetly.</p>
 <a class="btn gold" href="#formular">Get a free valuation</a><a class="btn ghost" href="#jak">How it works</a>
@@ -40,14 +40,23 @@
 <div class="box"><h3>🔒 Secure payment</h3><p>Immediate and transparent, with a purchase contract.</p></div><div class="box"><h3>🤫 Discreetly</h3><p>No fuss, handover whenever suits you.</p></div>
 </div></div></div></div></section>
 <section id="formular" style="background:#f4efe7"><div class="wrap"><h2 class="center">Free, no-obligation valuation</h2><p class="sub center">Fill it in and we'll get back to you within 24 hours.</p>
-<form class="form" action="mailto:info@lapatine.eu" method="post" enctype="text/plain">
-<label>Name</label><input name="Jmeno" required>
-<label>E-mail or phone</label><input name="Kontakt" required>
-<label>Model</label><select name="Model"><option>Birkin</option><option>Kelly</option><option>Not sure / other</option></select>
-<label>Size / colour / year (if you know)</label><input name="Detail" placeholder="e.g. Birkin 35, black, 2015">
-<label>Condition and description of flaws</label><textarea name="Stav" placeholder="E.g. scuffed corners, stain on the flap, torn handle…"></textarea>
-<label>Price expectation (optional)</label><input name="Cena" placeholder="€">
-<button class="btn" type="submit">Send for valuation</button><p class="fnote">Sending this just contacts us — you commit to nothing. You add photos in your reply to our e-mail.</p></form></div></section>
+<form class="form" id="vform">
+<label>Name</label><input name="name" required>
+<label>E-mail or phone</label><input name="contact" required>
+<label>Model</label><select name="model"><option>Birkin</option><option>Kelly</option><option>Not sure / other</option></select>
+<label>Size / colour / year (if you know)</label><input name="detail" placeholder="e.g. Birkin 35, black, 2015">
+<label>Condition and description of flaws</label><textarea name="condition" placeholder="E.g. scuffed corners, stain on the flap, torn handle…"></textarea>
+<label>Price expectation (optional)</label><input name="price" placeholder="€">
+<label>Photos of the bag (flaws too)</label>
+<div class="up"><input type="file" id="ph" accept="image/*" multiple hidden>
+<button type="button" class="upbtn" id="upbtn">📷 Add photos / Take a photo</button>
+<div class="thumbs" id="thumbs"></div>
+<p class="uphint">Photograph: front and back, corners and base, handles, hardware and zipper, the date stamp, the interior stamp and close-ups of any flaws. Add the box, dust bag and receipt if you have them.</p></div>
+<input type="text" name="company" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+<button class="btn" type="submit" id="vsubmit">Send for valuation</button><p class="fnote">Sending this just contacts us — you commit to nothing.</p></form>
+<div class="sent" id="sent" style="display:none">✓ Thank you! We'll get back to you with a valuation within 24 hours.</div></div></section>
+<script>window.__V={hook:"https://hook.eu1.make.com/8oaayelsos1skmqlrpauyxy3hg58y6q8",sending:"Sending…",err:"Something went wrong, please try again.",submit:"Send for valuation"};</script>
+<script src="../../assets/vykup.js"></script>
 <section><div class="wrap faq"><h2 class="center">Frequently asked questions</h2>
 <details><summary>Do you really buy damaged bags too?</summary><p>Yes — that's our specialty. Scuffs, stains, faded colour and damaged leather are fine; after restoration we resell the piece.</p></details>
 <details><summary>How fast do I get an offer?</summary><p>Within 24 hours of sending photos and basic information.</p></details>
